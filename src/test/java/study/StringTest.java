@@ -21,4 +21,17 @@ public class StringTest {
 		String[] split2 = testNumber2.split(",");
 		assertThat(split2).contains("1");
 	}
+
+	@Test
+	void erase_bracket_test() {
+		String text = "(1,2)";
+		String answer = text.substring(1, text.length() - 1);
+		assertThat(answer).isEqualTo("1,2");
+	}
+
+	@Test
+	void throw_string_index_out_of_bounds_exception() {
+		String text = "abc";
+		assertThatThrownBy(() -> text.charAt(4)).isInstanceOf(StringIndexOutOfBoundsException.class);
+	}
 }
