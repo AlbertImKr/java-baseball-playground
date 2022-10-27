@@ -2,6 +2,7 @@ package study;
 
 import static org.assertj.core.api.Assertions.*;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class StringTest {
@@ -30,6 +31,7 @@ public class StringTest {
 	}
 
 	@Test
+	@DisplayName("문자 범위초과시 Exception 발생하는지 확인")
 	void throw_string_index_out_of_bounds_exception() {
 		String text = "abc";
 		assertThatThrownBy(() -> text.charAt(4)).isInstanceOf(StringIndexOutOfBoundsException.class);
