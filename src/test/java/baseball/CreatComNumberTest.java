@@ -6,12 +6,12 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-class CreatNumberTest {
+class CreatComNumberTest {
 
 	@Test
 	void creat_number_0_9() {
-		CreatNumber number = new CreatNumber();
-		List<Integer> numberList = number.getNumberList();
+		CreatComNumber number = new CreatComNumber();
+		List<Integer> numberList = number.getComNumberList();
 		for (Integer integer : numberList) {
 			assertThat(integer).isLessThanOrEqualTo(9).isGreaterThanOrEqualTo(1);
 		}
