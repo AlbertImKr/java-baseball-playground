@@ -14,17 +14,18 @@ public class BallTest {
 	}
 
 	@Test
-	void 스트라이크() {
+	void ball_strike() {
 		assertThat(ball.play(new Ball(1, 4))).isEqualTo(BallStatus.STRIKE);
 	}
 
 	@Test
-	void 볼() {
+	void ball_ball() {
 		assertThat(ball.play(new Ball(2, 4))).isEqualTo(BallStatus.BALL);
 	}
 
 	@Test
-	void 낫싱() {
+	void ball_nothing() {
 		assertThat(ball.play(new Ball(2, 3))).isEqualTo(BallStatus.NOTHING);
 	}
+
 }

@@ -40,4 +40,5 @@ public class Ball {
 	private boolean mathValue(int value) {
 		return this.value == value;
 	}
+
 }
