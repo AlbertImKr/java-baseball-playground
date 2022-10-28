@@ -21,7 +21,14 @@ public class PlayResult {
 		}
 	}
 
-	public boolean isEnd(){
+	public boolean isEnd() {
 		return strike == 3;
+	}
+
+	@Override
+	public String toString() {
+		String ballInfo = ball == 0 ? "" : (ball + "볼");
+		String strikeInfo = strike == 0 ? "" : (strike + "스트라이크");
+		return ballInfo + strikeInfo;
 	}
 }

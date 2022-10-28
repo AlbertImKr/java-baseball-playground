@@ -10,47 +10,48 @@ public class BaseballGame {
 	private static Change change;
 
 	public BaseballGame() {
-		List<Integer> comNumberList = new CreatComNumber().getComNumberList();
-		comBalls = new Balls(comNumberList);
 		inputView = new InputView();
 		rightList = new RightList();
 		change = new Change();
 	}
 
-	public static void start() {
+	void startGuess() {
 		int number = inputView.getNumber();
 		List<Integer> userNumberList = change.intToList(number);
 		checkInputRight(userNumberList);
 	}
 
-	private static void checkInputRight(List<Integer> userNumberList) {
-		if (rightList.checkRange(userNumberList)
-			&& !rightList.checkRepeat(userNumberList)
-			&& !rightList.checkZero(userNumberList)) {
+	void getNewComBalls(){
+		CreatComNumber creatComNumber = new CreatComNumber();
+		comBalls = creatComNumber.getBalls();
+	}
+
+	private void checkInputRight(List<Integer> userNumberList) {
+		if (rightList.checkAll(userNumberList)) {
 			compareToComNumberList(userNumberList);
-		} else {
-			start();
+			return;
 		}
+		startGuess();
 	}
 
-	private static void compareToComNumberList(List<Integer> userNumberList) {
-		PlayResult play = comBalls.play(userNumberList);
-		int ballNum = play.getBall();
-		int strikeNum = play.getStrike();
-		System.out.print(ballNum == 0 ? "" : (ballNum + "볼"));
-		System.out.print(strikeNum == 0 ? "" : (strikeNum + "스트라이크"));
-		if (play.isEnd()) {
+	private void compareToComNumberList(List<Integer> userNumberList) {
+		PlayResult playResult = comBalls.play(userNumberList);
+		System.out.println(playResult);
+		endGameOrNOt(playResult);
+	}
+
+	private void endGameOrNOt(PlayResult playResult) {
+		if (playResult.isEnd()) {
 			endGame();
-		} else {
-			start();
+			return;
 		}
+		startGuess();
 	}
 
-	private static void endGame() {
+	private void endGame() {
 		if (inputView.restart()) {
-			BaseballGame baseballGame = new BaseballGame();
-			start();
+			getNewComBalls();
+			startGuess();
 		}
-
 	}
 }

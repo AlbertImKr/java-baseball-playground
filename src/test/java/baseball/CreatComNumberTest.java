@@ -11,7 +11,7 @@ class CreatComNumberTest {
 	@Test
 	void creat_number_0_9() {
 		CreatComNumber number = new CreatComNumber();
-		List<Integer> numberList = number.getComNumberList();
+		List<Integer> numberList = number.getIntegers();
 		for (Integer integer : numberList) {
 			assertThat(integer).isLessThanOrEqualTo(9).isGreaterThanOrEqualTo(1);
 		}
