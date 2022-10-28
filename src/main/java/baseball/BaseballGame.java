@@ -21,7 +21,7 @@ public class BaseballGame {
 		checkInputRight(userNumberList);
 	}
 
-	void getNewComBalls(){
+	void getNewComBalls() {
 		CreatComNumber creatComNumber = new CreatComNumber();
 		comBalls = creatComNumber.getBalls();
 	}

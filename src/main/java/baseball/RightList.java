@@ -23,7 +23,7 @@ public class RightList {
 
 	public boolean checkAll(List<Integer> userNumberList) {
 		return checkRange(userNumberList)
-			&& checkRepeat(userNumberList)
-			&& checkZero(userNumberList);
+			&& !checkRepeat(userNumberList)
+			&& !checkZero(userNumberList);
 	}
 }
