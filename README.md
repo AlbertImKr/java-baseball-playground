@@ -10,6 +10,14 @@
 
 ![mission baseball](https://raw.githubusercontent.com/next-step/nextstep-docs/master/playground/images/mission_baseball.png)
 
+## 피드팩 전 기능구현목록
+1.Random 3자리의 수를 생성하고 리스트에 저장한다..
+2.숫자를 입력 받는다.
+3.받은 숫자와 3자리 수인지 확인한다.
+4.받은 세자리수와 램덤된 3자리수 와 비교하여 스트라이크수량와 볼 수량을 구하고 출력한다.
+5.3스트라이크 맞는지 확인한다 . 맞으면 6번 아니면 2번으로 넘어간다.
+6.게임을 새로 사작 혹은 종료 여부를 확인한다. 시작시 다시 ->1  종료시 끝; 
+
 ---
 2. 피드백 앞 단계까지 미션 구현을 완료한 후 피드백 강의를 학습한다.
 
