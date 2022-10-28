@@ -1,29 +1,30 @@
 package base_ball_game;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Game {
-	public static List<Integer> compareNum(int n, List<Integer> numberList) {
+	public static void compareNum(int n, int[] numberList) {
 		List<Integer> list = new ArrayList<>();
 		int strikeCount = 0;
 		int ballCount = 0;
-		for (int i = 0; i < numberList.size(); i++) {
+		for (int i = 0; i < numberList.length; i++) {
 			int temp = n % 10;
-			strikeCount += Strike(temp, numberList.get(numberList.size()-1-i));
-			ballCount += Ball(temp, numberList, numberList.size()-1-i);
+			strikeCount += Strike(temp, numberList[numberList.length - 1 - i]);
+			ballCount += Ball(temp, numberList, numberList.length - 1 - i);
 			n /= 10;
 		}
 		list.add(strikeCount);
 		list.add(ballCount);
-		return list;
+		OutputView.of(list, numberList);
 	}
 
-	static int Ball(int num, List<Integer> numberList, int index) {
-		if (num == numberList.get(index)) {
+	static int Ball(int num, int[] numberList, int index) {
+		if (num == numberList[index]) {
 			return 0;
 		}
-		if (numberList.contains(num)) {
+		if (Arrays.stream(numberList).anyMatch(value -> value == num)) {
 			return 1;
 		}
 		return 0;
