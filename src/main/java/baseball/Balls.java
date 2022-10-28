@@ -26,4 +26,15 @@ public class Balls {
 			.orElse(BallStatus.NOTHING);
 
 	}
+
+	public PlayResult play(List<Integer> userList) {
+		PlayResult playResult = new PlayResult();
+		for (int i = 0; i < userList.size(); i++) {
+			Ball newBall = new Ball(i, userList.get(i));
+			BallStatus status = play(newBall);
+			playResult.report(status);
+		}
+
+		return playResult;
+	}
 }
