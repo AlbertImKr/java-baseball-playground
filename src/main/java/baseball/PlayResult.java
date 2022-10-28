@@ -16,7 +16,7 @@ public class PlayResult {
 		if (status.isStrike()) {
 			strike++;
 		}
-		if (status.isBall()){
+		if (status.isBall()) {
 			ball++;
 		}
 	}
